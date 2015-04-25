@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">DailyQuestion</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="desc_list_item_icon">This is a test Image Icon</string>
+
+    <string-array name="nav_menu_items">
+        <item>خرید سکه</item>
+        <item>به اشتراک گذاری بازی</item>
+        <item>امتیازدهی به بازی</item>
+        <item>ارتباط با ما</item>
+    </string-array>
+</resources>
