@@ -2,13 +2,27 @@
     <string name="app_name">DailyQuestion</string>
 
     <string name="hello_world">Hello world!</string>
-    <string name="action_settings">Settings</string>
+    <string name="action_settings">تنظیمات</string>
     <string name="desc_list_item_icon">This is a test Image Icon</string>
 
     <string-array name="nav_menu_items">
+        <item>صفحه اصلی</item>
+        <item>تنظیمات</item>
         <item>خرید سکه</item>
         <item>به اشتراک گذاری بازی</item>
         <item>امتیازدهی به بازی</item>
         <item>ارتباط با ما</item>
     </string-array>
+
+    <string-array name="nav_menu_icons">
+        <item>@drawable/ic_photos</item>
+        <item>@drawable/ic_photos</item>
+        <item>@drawable/ic_photos</item>
+        <item>@drawable/ic_photos</item>
+        <item>@drawable/ic_photos</item>
+        <item>@drawable/ic_photos</item>
+    </string-array>
+
+<!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
