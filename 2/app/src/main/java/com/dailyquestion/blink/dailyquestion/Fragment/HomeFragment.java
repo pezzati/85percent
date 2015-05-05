@@ -3,6 +3,7 @@ package com.dailyquestion.blink.dailyquestion.Fragment;
 import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.app.Fragment;
@@ -13,6 +14,7 @@ import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 
+import com.dailyquestion.blink.dailyquestion.Activity.LevelActivity;
 import com.dailyquestion.blink.dailyquestion.R;
 
 import java.util.ArrayList;
@@ -93,6 +95,7 @@ public class HomeFragment extends Fragment {
             ListView listView = (ListView) view.findViewById(R.id.listView_levels);
             listLvlAdapter lvlAdapter = new listLvlAdapter(getList());
             listView.setAdapter(lvlAdapter);
+            listView.setDivider(null);
         }
         else {
             System.out.println("#################Get view is null");
@@ -185,6 +188,9 @@ public class HomeFragment extends Fragment {
                 @Override
                 public void onClick(View v) {
                     System.out.println("#######Report " + leftButton.getText() + " clicked");
+                    Intent intent = new Intent(getActivity(), LevelActivity.class);
+                    intent.putExtra("level", leftButton.getText());
+                    getActivity().startActivity(intent);
                 }
             });
             rightButton.setText(this.butText.get(position)[1]);
@@ -192,6 +198,9 @@ public class HomeFragment extends Fragment {
                 @Override
                 public void onClick(View v) {
                     System.out.println("#######Report " + rightButton.getText() + " clicked");
+                    Intent intent = new Intent(getActivity(), LevelActivity.class);
+                    intent.putExtra("level", rightButton.getText());
+                    getActivity().startActivity(intent);
                 }
             });
             return convertView;
