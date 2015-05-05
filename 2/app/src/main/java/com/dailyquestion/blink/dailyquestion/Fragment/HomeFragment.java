@@ -1,9 +1,8 @@
 package com.dailyquestion.blink.dailyquestion.Fragment;
 
 import android.app.Activity;
-import android.app.Application;
+import android.app.FragmentTransaction;
 import android.content.Context;
-import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.app.Fragment;
@@ -14,7 +13,6 @@ import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 
-import com.dailyquestion.blink.dailyquestion.Activity.LevelActivity;
 import com.dailyquestion.blink.dailyquestion.R;
 
 import java.util.ArrayList;
@@ -28,16 +26,9 @@ import java.util.List;
  * Use the {@link HomeFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class HomeFragment extends Fragment {
+public class HomeFragment extends Fragment{
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
 
     private OnFragmentInteractionListener mListener;
 
@@ -45,16 +36,11 @@ public class HomeFragment extends Fragment {
      * Use this factory method to create a new instance of
      * this fragment using the provided parameters.
      *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
      * @return A new instance of fragment HomeFragment.
      */
-    // TODO: Rename and change types and number of parameters
-    public static HomeFragment newInstance(String param1, String param2) {
+    public static HomeFragment newInstance() {
         HomeFragment fragment = new HomeFragment();
         Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
         fragment.setArguments(args);
         return fragment;
     }
@@ -67,8 +53,6 @@ public class HomeFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
         }
 
 
@@ -187,20 +171,29 @@ public class HomeFragment extends Fragment {
             leftButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    System.out.println("#######Report " + leftButton.getText() + " clicked");
-                    Intent intent = new Intent(getActivity(), LevelActivity.class);
-                    intent.putExtra("level", leftButton.getText());
-                    getActivity().startActivity(intent);
+                    /*System.out.println("#######Report " + leftButton.getText() + " clicked");*/
+
+                    Fragment fragment = new LevelFragment().newInstance(String.valueOf(leftButton.getText()));
+                    FragmentTransaction fragmentTransaction = getActivity().getFragmentManager().beginTransaction();
+
+                    fragmentTransaction.replace(R.id.frame_container, fragment);
+                    fragmentTransaction.addToBackStack(null);
+                    fragmentTransaction.commit();
+
                 }
             });
             rightButton.setText(this.butText.get(position)[1]);
             rightButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    System.out.println("#######Report " + rightButton.getText() + " clicked");
-                    Intent intent = new Intent(getActivity(), LevelActivity.class);
-                    intent.putExtra("level", rightButton.getText());
-                    getActivity().startActivity(intent);
+                    /*System.out.println("#######Report " + rightButton.getText() + " clicked");*/
+
+                    Fragment fragment = new LevelFragment().newInstance(String.valueOf(rightButton.getText()));
+                    FragmentTransaction fragmentTransaction = getActivity().getFragmentManager().beginTransaction();
+
+                    fragmentTransaction.replace(R.id.frame_container, fragment);
+                    fragmentTransaction.addToBackStack(null);
+                    fragmentTransaction.commit();
                 }
             });
             return convertView;

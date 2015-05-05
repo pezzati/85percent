@@ -24,6 +24,7 @@ import android.widget.ListView;
 
 import com.dailyquestion.blink.dailyquestion.Adapter.NavDrawerListAdapter;
 import com.dailyquestion.blink.dailyquestion.Fragment.HomeFragment;
+import com.dailyquestion.blink.dailyquestion.Fragment.LevelFragment;
 import com.dailyquestion.blink.dailyquestion.Model.NavDrawerItem;
 import com.dailyquestion.blink.dailyquestion.R;
 
@@ -31,7 +32,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class MainActivity extends ActionBarActivity implements HomeFragment.OnFragmentInteractionListener{
+public class MainActivity extends ActionBarActivity implements HomeFragment.OnFragmentInteractionListener, LevelFragment.OnFragmentInteractionListener{
 
     private DrawerLayout mDrawerLayout;
     private ListView mDrawerList;

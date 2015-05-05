@@ -28,4 +28,5 @@
     <string name="title_activity_level">LevelActivity</string>
 
     <string name="level">Level</string>
+    <string name="title_activity_question">Question</string>
 </resources>
